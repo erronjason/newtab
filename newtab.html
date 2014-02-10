@@ -1,0 +1,166 @@
+<html>
+	<head>
+		<title>Home</title>
+		<link rel="shortcut icon" type="image/gif" href=" " />
+		<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300' rel='stylesheet' type='text/css'>
+		<script src="js/annyang.min.js"></script>
+
+
+
+
+		<style type="text/css">
+			body{
+			background: #ffffff;
+			background: radial-gradient(ellipse at center, #ffffff 0%, #eee 100%);
+			background: -moz-radial-gradient(#eee, #fff);
+			}
+			.keepcentered{
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			width: 480px;
+			height: 300px;
+			margin-left: -240px;
+			margin-top: -150px;
+			font-weight: 100;
+			}
+			body{
+			-webkit-text-stroke: 0.2px;
+			font-family: 'Roboto', sans-serif;
+			font-style: normal;
+			color: #006699;
+			margin: 5px;
+			}
+			td, tr{
+			width: 20%;
+			text-align: center;
+			}
+			a{
+			font-weight: 100;
+			color: #999;
+			}
+			a:hover{
+			color: #d64937;
+			}
+			a:link{
+			text-decoration: none;
+			text-shadow: 0px 0px 0px #000;
+			}
+			#time{
+			-webkit-text-stroke: 0.6px;
+			}
+		</style>
+	</head>
+		
+	<body onload="updateClock()">
+		<div class="keepcentered">
+			<center><font size=72><div id="time"></div></font></center>
+			<p><center>
+			<table width="100%" border="0px">
+				<tr>
+					<td>Google</td>
+					<td>Server</td>
+					<td>Links</td>
+					<td>Code</td>
+					<td>Other</td>
+				</b>
+				<tr>
+					<td><a href="http://gmail.com">Gmail</a></td>
+					<td><a href="http://erronjason.com/files">Files</a></td>
+					<td><a href="http://reddit.com">Reddit</a></td>
+					<td><a href="chrome-extension://pnhechapfaindjhompbnflcldabbghjo/html/nassh.html">Terminal</a></td>
+					<td><a href="http://mint.com">Mint.com</a></td>
+				</tr>
+				<tr>
+					<td><a href="http://play.google.com/music">Music</a></td>
+					<td><a href="http://erronjason.com/cpanel">cPanel</a></td>
+					<td><a href="https://facebook.com/">Facebook</a></td>
+					<td><a href="http://home.erronjason.com/code/">Codiad</a></td>
+					<td><a href="https://intranet.hivelocity.net/">Intranet</a></td>
+				</tr>
+				<tr>
+					<td><a href="http://drive.google.com">Drive</a></td>
+					<td><a href="http://erronjason.com/webmail">Webmail</a></td>
+					<td><a href="https://manage.hivelocity.net/admin/supportmgr/">&Uuml;bersmith</a></td>
+					<td><a href="http://overapi.com">OverAPI</a></td>
+					<td><a href="https://regions.com">Regions</a></td>
+				</tr>
+				<tr>
+					<td><a href="http://plus.google.com">G+</a></td>
+					<td><a href="http://drive.erronjason.com">errDrive</a></td>
+					<td><a href="https://email.hivelocity.net/">Work Email</a></td>
+					<td><a href="http://pastebin.com/">Pastebin</a></td>
+					<td><a href="https://hive.hivelocity.net/admin/passwords/password/">The Hive</a></td>
+				</tr>
+			</table>
+			<br>
+			</center>
+		</p>
+</div>
+	</body>
+	<script>
+	// Clock functions
+		function updateClock() 
+		{
+			Date.getMinutesTwoDigits = function()
+			{
+				var retval = now.getMinutes();
+				if (retval < 10) return ("0" + retval.toString());
+				else return retval.toString();
+			}
+			Date.getHoursModTwelve = function()
+			{
+				var retval = now.getHours();
+				// Change to 12; if you're a pansy
+				var clocktype = 24 // hour
+				retval = retval%clocktype;
+				if (retval == 0) retval = 24;
+				return retval;
+			}
+			var now = new Date(),
+			time = Date.getHoursModTwelve() + ':' + Date.getMinutesTwoDigits();
+			document.getElementById('time').innerHTML = ["", time].join('');
+			setTimeout(updateClock, 1000);
+		}
+	</script>
+	
+	
+	<script>
+	// Voice activation stuff
+		if (annyang) { 
+		
+		var reddit = function() {
+		window.location.replace('http://reddit.com');
+		}
+		var facebook = function() {
+		window.location.replace('http://facebook.com');
+		}
+		var gg = function() {
+		window.location.replace('http://account.geekghost.net/admin/supporttickets.php');
+		}
+		var gplus = function() {
+		window.location.replace('http://plus.google.com');
+		}
+		var intranet = function() {
+		window.location.replace('http://intranet.hivelocity.net');
+		}
+		var ubersmith = function() {
+		window.location.replace('http://manage.hivelocity.net');
+		}
+		var commands = {
+		
+		'open reddit': reddit,
+		'open g plus': gplus,
+		'open google plus': gplus,
+		'open account dot': gg,
+		'open facebook': facebook,
+		'open intranet': intranet,
+		'open uber smith': ubersmith,
+		'open uber': ubersmith,
+		};
+
+		annyang.addCommands(commands);
+		annyang.start();
+		}
+	</script>
+</html>
