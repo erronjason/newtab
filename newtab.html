@@ -9,10 +9,12 @@
 
 
 		<style type="text/css">
+                        @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400);
 			body{
 			background: #ffffff;
-			background: radial-gradient(ellipse at center, #ffffff 0%, #eee 100%);
-			background: -moz-radial-gradient(#eee, #fff);
+			background: radial-gradient(ellipse at center, #fff 0%, #eee 100%);
+			background: -moz-radial-gradient(#fff, #eee);
+			background-attachment:fixed;
 			}
 			.keepcentered{
 			position: absolute;
@@ -28,7 +30,7 @@
 			-webkit-text-stroke: 0.2px;
 			font-family: 'Roboto', sans-serif;
 			font-style: normal;
-			color: #006699;
+			color: #ad9a78;
 			margin: 5px;
 			}
 			td, tr{
@@ -47,14 +49,17 @@
 			text-shadow: 0px 0px 0px #000;
 			}
 			#time{
-			-webkit-text-stroke: 0.6px;
+                        color: #c7c7c7;
+                        font-size: 6em;
+			-webkit-text-stroke: 0.1px;
+			font-family: 'Source Sans Pro', sans-serif;
 			}
 		</style>
 	</head>
 		
 	<body onload="updateClock()">
 		<div class="keepcentered">
-			<center><font size=72><div id="time"></div></font></center>
+			<center><div id="time"></div></font></center>
 			<p><center>
 			<table width="100%" border="0px">
 				<tr>
@@ -75,7 +80,7 @@
 					<td><a href="http://play.google.com/music">Music</a></td>
 					<td><a href="http://erronjason.com/cpanel">cPanel</a></td>
 					<td><a href="https://facebook.com/">Facebook</a></td>
-					<td><a href="http://home.erronjason.com/code/">Codiad</a></td>
+					<td><a href="https://github.com/">Github</a></td>
 					<td><a href="https://intranet.hivelocity.net/">Intranet</a></td>
 				</tr>
 				<tr>
@@ -135,6 +140,9 @@
 		var facebook = function() {
 		window.location.replace('http://facebook.com');
 		}
+		var gg = function() {
+		window.location.replace('http://account.geekghost.net/admin/supporttickets.php');
+		}
 		var gplus = function() {
 		window.location.replace('http://plus.google.com');
 		}
@@ -149,6 +157,7 @@
 		'open reddit': reddit,
 		'open g plus': gplus,
 		'open google plus': gplus,
+		'open account dot': gg,
 		'open facebook': facebook,
 		'open intranet': intranet,
 		'open uber smith': ubersmith,
